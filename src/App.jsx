@@ -1,10 +1,11 @@
 import React from 'react'
+import MainRoutes from './routes/MainRoutes'
 
 function App() {
 
   return (
     <>
-      <h1>Movie Search app</h1>
+      <MainRoutes />
     </>
   )
 }
