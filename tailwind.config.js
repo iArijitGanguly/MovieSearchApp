@@ -8,6 +8,7 @@ export default {
     extend: {
       fontFamily: {
         bebas: ["Bebas Neue", "sans-serif"],
+        mullish: ["Mulish", "sans-serif"],
       },
       colors: {
         primeBlue: "#00a0d6",
