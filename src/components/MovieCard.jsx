@@ -2,7 +2,7 @@ import React from 'react';
 
 const MovieCard = ({ Title, Year, Type, Poster }) => {
   return (
-    <div className='max-w-[27%] text-center flex flex-col border-2 border-solid border-white py-5 px-0 rounded-lg items-center bg-white'>
+    <div className='max-w-[30%] mb-12 text-center flex flex-col border-[1px] border-solid border-white py-5 px-0 rounded-lg items-center bg-white'>
         <div>
             <img src={Poster} />
         </div>

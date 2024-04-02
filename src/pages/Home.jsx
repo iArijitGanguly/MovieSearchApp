@@ -1,21 +1,31 @@
-import React from 'react';
-import MovieCard from '../components/MovieCard';
+import React, { useEffect, useState } from "react";
+import searchMovie from "../apis/omdb";
+import MovieCard from "../components/MovieCard";
+import axios from "axios";
 
 const Home = () => {
-  const movie = {
-    "Title":"Harry Potter and the Deathly Hallows: Part 2",
-    "Year":"2011",
-    "imdbID":"tt1201607",
-    "Type":"movie",
-    "Poster":"https://m.media-amazon.com/images/M/MV5BMGVmMWNiMDktYjQ0Mi00MWIxLTk0N2UtN2ZlYTdkN2IzNDNlXkEyXkFqcGdeQXVyODE5NzE3OTE@._V1_SX300.jpg"
-    };
+  const [movieList, setMovieList] = useState([]);
+
+  const fetchDefaultMovies = async (...args) => {
+    const urls = args.map((movieName) => searchMovie(movieName));
+    try {
+      const response = await axios.all(urls.map((url) => axios.get(url)));
+      const movies = response.map((movie) => movie.data.Search);
+      setMovieList([].concat(...movies));
+    } catch (error) {}
+  };
+
+  useEffect(() => {
+    fetchDefaultMovies("harry", "avengers", "batman");
+  }, []);
   return (
-    <div className='flex justify-around mt-12'>
-      <MovieCard {...movie} />
-      <MovieCard {...movie} />
-      <MovieCard {...movie} />
+    <div className="flex flex-wrap justify-evenly mt-12">
+      {movieList.length > 0 &&
+        movieList.map((movie) => {
+          return <MovieCard key={movie.imdbID} {...movie} />;
+        })}
     </div>
-  )
-}
+  );
+};
 
 export default Home;
