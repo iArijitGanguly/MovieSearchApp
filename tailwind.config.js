@@ -5,7 +5,18 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        bebas: ["Bebas Neue", "sans-serif"],
+      },
+      colors: {
+        primeBlue: "#00a0d6",
+        dullBlue: "#364f65",
+        darkBlue: "#191e26",
+        textNav: "#fbfbfb",
+        lightPrimeGray: "#32373e"
+      }
+    },
   },
   plugins: [],
 }

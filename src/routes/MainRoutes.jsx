@@ -1,8 +1,8 @@
-import React from 'react'
-import { Route, Routes } from 'react-router-dom'
-import Home from '../pages/Home'
-import MovieDetails from '../pages/MovieDetails'
-import Error from '../pages/Error'
+import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import Home from '../pages/Home';
+import MovieDetails from '../pages/MovieDetails';
+import Error from '../pages/Error';
 
 const MainRoutes = () => {
   return (
@@ -14,4 +14,4 @@ const MainRoutes = () => {
   )
 }
 
-export default MainRoutes
+export default MainRoutes;
