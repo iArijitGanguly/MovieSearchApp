@@ -1,11 +1,17 @@
 import React, { useRef, useState } from "react";
 import useMovieList from "../hooks/useMovieList";
 import useDebounce from "../hooks/useDebounce";
+import { useNavigate } from "react-router-dom";
 
 const NavBar = () => {
   const resultListRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
   const { movieList } = useMovieList(searchTerm);
+  const navigate = useNavigate();
+
+  const handleMouseDown = (imdbID) => {
+    navigate(`/movie/${imdbID}`);
+  };
   return (
     <div className="flex justify-around border-2 border-solid border-dullBlue bg-dullBlue text-textNav p-4 items-center">
       <h1 className="font-bebas text-4xl tracking-wider">Movie Base</h1>
@@ -31,7 +37,8 @@ const NavBar = () => {
               return (
                 <div
                   key={movie.imdbID}
-                  className="text-xl p-4 border-b-[1px] border-solid border-b-black cursor-pointer"
+                  className="text-xl p-4 border-b-[1px] border-solid border-b-black cursor-pointer hover:bg-primeBlue"
+                  onMouseDown={() => handleMouseDown(movie.imdbID)}
                 >
                   {movie.Title}
                 </div>
