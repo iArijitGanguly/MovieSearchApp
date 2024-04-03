@@ -17,13 +17,13 @@ const NavBar = () => {
           className="w-full h-12 p-2 bg-lightPrimeGray focus:outline-none rounded-md"
         />
 
-        <div className="absolute bg-textNav text-black w-full rounded-lg" ref={resultListRef}>
+        <div className="absolute hidden bg-textNav text-black w-full rounded-lg" ref={resultListRef}>
           <div className="text-xl p-4 border-b-[1px] border-solid border-b-black">Result 1</div>
           <div className="text-xl p-4 border-b-[1px] border-solid border-b-black">Result 2</div>
           <div className="text-xl p-4 border-b-[1px] border-solid border-b-black">Result 3</div>
         </div>
       </div>
-
+      
       <div>Theme</div>
     </div>
   );
