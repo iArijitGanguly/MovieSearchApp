@@ -16,6 +16,16 @@ const NavBar = () => {
   const handleMouseDown = (imdbID) => {
     navigate(`/movie/${imdbID}`);
   };
+  function updateTheme() {
+    if(theme == "dark") {
+      setTheme("light");
+      localStorage.setItem("app-theme", "light");
+    }
+    else {
+      setTheme("dark");
+      localStorage.setItem("app-theme", "dark");
+    }
+  }
   return (
     <div className="flex justify-around border-2 border-solid border-dullBlue bg-dullBlue p-4 items-center">
       <h1 className="font-bebas text-4xl tracking-wider text-[#fbfbfb]">
@@ -53,7 +63,7 @@ const NavBar = () => {
         </div>
       </div>
 
-      <div onClick={() => setTheme((theme == "dark") ? "light" : "dark")}>
+      <div onClick={updateTheme}>
         {theme == "dark" ? (
           <IoSunnySharp fontSize="2.5rem" className="cursor-pointer text-textNav" />
         ) : (
