@@ -4,3 +4,23 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+    --prime-blue: #00a0d6;
+    --dull-blue: #364f65;
+    --dark-blue: #191e26;
+    --text-nav: #fbfbfb;
+    --card-background: #fbfbfb;
+    --light-primeGray: #32373e;
+    --font-color: #00050d;
+}
+
+[data-theme='light'] {
+    --prime-blue: #00a0d6;
+    --dull-blue: #364f65;
+    --dark-blue: #ffffff;
+    --text-nav: #00050d;
+    --card-background: #364f65;
+    --light-primeGray: #e6ecf5;
+    --font-color: #fbfbfb;
+}

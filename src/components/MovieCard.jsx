@@ -9,7 +9,7 @@ const MovieCard = ({ Title, Year, Type, Poster, imdbID }) => {
   };
   return (
     <div
-      className="max-w-[30%] cursor-pointer mb-12 text-center flex flex-col border-[1px] border-solid border-white py-5 px-0 rounded-lg items-center bg-white"
+      className="max-w-[30%] text-fontColor cursor-pointer mb-12 text-center flex flex-col border-[1px] border-solid border-white py-5 px-0 rounded-lg items-center bg-cardBackground"
       onClick={HandleClick}
     >
       <div>

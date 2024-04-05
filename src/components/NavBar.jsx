@@ -1,20 +1,26 @@
-import React, { useRef, useState } from "react";
+import React, { useContext, useRef, useState } from "react";
 import useMovieList from "../hooks/useMovieList";
 import useDebounce from "../hooks/useDebounce";
 import { useNavigate } from "react-router-dom";
+import { FaRegMoon } from "react-icons/fa";
+import { IoSunnySharp } from "react-icons/io5";
+import { ThemeContext } from "../context/ThemeContext";
 
 const NavBar = () => {
   const resultListRef = useRef(null);
   const [searchTerm, setSearchTerm] = useState("");
   const { movieList } = useMovieList(searchTerm);
+  const { theme, setTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
 
   const handleMouseDown = (imdbID) => {
     navigate(`/movie/${imdbID}`);
   };
   return (
-    <div className="flex justify-around border-2 border-solid border-dullBlue bg-dullBlue text-textNav p-4 items-center">
-      <h1 className="font-bebas text-4xl tracking-wider">Movie Base</h1>
+    <div className="flex justify-around border-2 border-solid border-dullBlue bg-dullBlue p-4 items-center">
+      <h1 className="font-bebas text-4xl tracking-wider text-[#fbfbfb]">
+        Movie Base
+      </h1>
       <div className="basis-4/6 relative">
         <input
           type="text"
@@ -22,11 +28,11 @@ const NavBar = () => {
           onFocus={() => (resultListRef.current.style.display = "block")}
           onBlur={() => (resultListRef.current.style.display = "none")}
           onChange={useDebounce((e) => setSearchTerm(e.target.value))}
-          className="w-full h-12 p-2 bg-lightPrimeGray focus:outline-none rounded-md"
+          className="w-full h-12 p-2 bg-lightPrimeGray text-textNav focus:outline-none rounded-md"
         />
 
         <div
-          className="max-h-96 overflow-y-scroll absolute hidden bg-textNav text-black w-full rounded-lg border-[1px] border-solid border-primeBlue"
+          className="max-h-96 overflow-y-scroll absolute hidden bg-lightPrimeGray text-textNav w-full rounded-lg border-[1px] border-solid border-dullBlue"
           ref={resultListRef}
         >
           <div className="text-xl p-4 border-b-[1px] border-solid border-b-black">
@@ -47,7 +53,13 @@ const NavBar = () => {
         </div>
       </div>
 
-      <div>Theme</div>
+      <div onClick={() => setTheme((theme == "dark") ? "light" : "dark")}>
+        {theme == "dark" ? (
+          <IoSunnySharp fontSize="2.5rem" className="cursor-pointer text-textNav" />
+        ) : (
+          <FaRegMoon fontSize="2.5rem" className="cursor-pointer text-textNav"/>
+        )}
+      </div>
     </div>
   );
 };

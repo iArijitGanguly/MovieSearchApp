@@ -11,11 +11,13 @@ export default {
         mullish: ["Mulish", "sans-serif"],
       },
       colors: {
-        primeBlue: "#00a0d6",
-        dullBlue: "#364f65",
-        darkBlue: "#191e26",
-        textNav: "#fbfbfb",
-        lightPrimeGray: "#32373e"
+        primeBlue: "var(--prime-blue)",
+        dullBlue: "var(--dull-blue)",
+        darkBlue: "var(--dark-blue)",
+        textNav: "var(--text-nav)",
+        cardBackground: "var(--card-background)",
+        lightPrimeGray: "var(--light-primeGray)",
+        fontColor: "var(--font-color)"
       }
     },
   },
